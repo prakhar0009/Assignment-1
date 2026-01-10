@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neptune</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <!-- Left -->
+
+        <div class="left">
+
+            <!-- Top section -->
+            <div class="top">
+
+                <!-- Neptune logo -->
+                <div class="Neptune">
+                    <img src="Assets/Neptune.svg" alt="Neptune logo"/>
+                </div>
+
+                <!-- User card -->
+                 <section class="user-card">
+
+                    <div class="user-left">
+                        <img src="Assets/logo.png" alt="User-logo"/>
+                    </div>
+                    <div class="user-center">
+                        <h2 class="user-name">Jessica Thompson</h2>
+                        <p class="user-role">Primary User </p>
+                    </div>
+                    <div class="user-right">
+                        <img src="Assets/dropdown.png" alt="down"/>
+                    </div>
+
+                 </section>
+                
+                <!-- Menu Item -->
+
+                <div class="menu">
+                    <div class="menu-item">
+                        <img src="Assets/home.png" alt="Home">
+                        <span>Home</span>
+                    </div>
+
+                    <div class="menu-item active">
+                        <img src="Assets/doc.png" alt="Home">
+                        <span>Documents</span>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="Assets/chat.png" alt="Home">
+                        <span>Chat with Neptune</span>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="Assets/mark.png" alt="Home">
+                        <span>Help</span>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="Assets/Vector.png" alt="Home">
+                        <span>Settings</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom section -->
+
+            <div class="bottom">
+                <img src="Assets/phone.png" alt="Phone">
+
+                <div>
+                    <div class="help-title">Having trouble?</div>
+                    <div class="help-desc">
+                        Feel free to contact us and we will always help you through the process.
+                    </div>
+                    <button class="help-btn">Contact us</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right -->
+
+        <div class="right">
+            <!-- main Content -->
+            <div class="right-content">
+
+                <div class="nav-text">
+                    <span class="nav-home">Home</span>
+                    <span class="nav-sep">></span>
+                    <span class="nav-current">Documents</span>
+                </div>
+
+                <div class="title-row">
+                    <h1>My Documents</h1>
+                    <input class="search-input" type="text" placeholder="Search documents"/>
+                </div>
+                
+                <div class="doc-box">
+                    <!-- Header -->
+
+                    <div class="doc-row doc-header">
+
+                        <div class="col-check">
+                            <input type="checkbox">
+                        </div>
+                        <div class="col-name name-header">
+                            <span>Document Name</span>
+                            <img src="Assets/dropdown.png" alt="Dropdown" class="dropdown-right"/>
+                        </div>
+                        <div class="col-status">Status</div>
+                        <div class="col-date">Last Modified</div>
+
+                    </div>
+
+                    <!-- Document Items -->
+                    <div class="doc-row doc-item">
+                        <div class="col-check">
+                            <input type="checkbox">
+                        </div>
+                        <div class="col-name">
+                            <span class="doc-title">Title of Document Goes Here</span>
+                        </div>
+                        <div class="col-status">
+                            <span class="status-pill needs-signing">Needs Signing</span>
+                        </div>
+                        <div class="col-date">
+                            <span class="doc-date">10/22/2024<br>2:01 pm</span>
+                        </div>
+                        <div class="col-action">
+                            <button class="action-btn">Sign now</button>
+                            <button class="menu-dots">⋮</button>
+                        </div>
+                    </div>
+
+                    <div class="doc-row doc-item">
+                        <div class="col-check">
+                            <input type="checkbox">
+                        </div>
+                        <div class="col-name">
+                            <span class="doc-title">Title of Document Goes Here</span>
+                        </div>
+                        <div class="col-status">
+                            <span class="status-pill pending">Pending</span>
+                            <div class="waiting-text">Waiting for 1 person</div>
+                        </div>
+                        <div class="col-date">
+                            <span class="doc-date">10/22/2024<br>2:01 pm</span>
+                        </div>
+                        <div class="col-action">
+                            <button class="action-btn">Preview</button>
+                            <button class="menu-dots">⋮</button>
+                        </div>
+                    </div>
+
+                    <div class="doc-row doc-item">
+                        <div class="col-check">
+                            <input type="checkbox">
+                        </div>
+                        <div class="col-name">
+                            <span class="doc-title">Title of Document Goes Here</span>
+                        </div>
+                        <div class="col-status">
+                            <span class="status-pill pending">Pending</span>
+                            <div class="waiting-text">Waiting for 2 people</div>
+                        </div>
+                        <div class="col-date">
+                            <span class="doc-date">10/22/2024<br>2:01 pm</span>
+                        </div>
+                        <div class="col-action">
+                            <button class="action-btn">Preview</button>
+                            <button class="menu-dots">⋮</button>
+                        </div>
+                    </div>
+
+                    <div class="doc-row doc-item">
+                        <div class="col-check">
+                            <input type="checkbox">
+                        </div>
+                        <div class="col-name">
+                            <span class="doc-title">Title of Document Goes Here</span>
+                        </div>
+                        <div class="col-status">
+                            <span class="status-pill completed">Completed</span>
+                        </div>
+                        <div class="col-date">
+                            <span class="doc-date">10/22/2024<br>2:01 pm</span>
+                        </div>
+                        <div class="col-action">
+                            <button class="action-btn">Download PDF</button>
+                            <button class="menu-dots">⋮</button>
+                        </div>
+                    </div>
+
+                    <div class="doc-row doc-item">
+                        <div class="col-check">
+                            <input type="checkbox">
+                        </div>
+                        <div class="col-name">
+                            <span class="doc-title">Title of Document Goes Here</span>
+                        </div>
+                        <div class="col-status">
+                            <span class="status-pill completed">Completed</span>
+                        </div>
+                        <div class="col-date">
+                            <span class="doc-date">10/22/2024<br>2:01 pm</span>
+                        </div>
+                        <div class="col-action">
+                            <button class="action-btn">Download PDF</button>
+                            <button class="menu-dots">⋮</button>
+                        </div>
+                    </div>
+
+                    <div class="doc-row doc-item">
+                        <div class="col-check">
+                            <input type="checkbox">
+                        </div>
+                        <div class="col-name">
+                            <span class="doc-title">Title of Document Goes Here</span>
+                        </div>
+                        <div class="col-status">
+                            <span class="status-pill completed">Completed</span>
+                        </div>
+                        <div class="col-date">
+                            <span class="doc-date">10/22/2024<br>2:01 pm</span>
+                        </div>
+                        <div class="col-action">
+                            <button class="action-btn">Download PDF</button>
+                            <button class="menu-dots">⋮</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
