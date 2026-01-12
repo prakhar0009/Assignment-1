@@ -41,22 +41,22 @@
             </div>
 
             <div class="menu-item active">
-              <img src="Assets/doc.png" alt="Home" />
-              <span>Documents</span>
+              <img src="Assets/doc.png" alt="Document" />
+              <span style="color: #1f4451">Documents</span>
             </div>
 
             <div class="menu-item">
-              <img src="Assets/chat.png" alt="Home" />
+              <img src="Assets/chat.png" alt="Chat with Neptune" />
               <span>Chat with Neptune</span>
             </div>
 
             <div class="menu-item">
-              <img src="Assets/mark.png" alt="Home" />
+              <img src="Assets/mark.png" alt="Help" />
               <span>Help</span>
             </div>
 
             <div class="menu-item">
-              <img src="Assets/Vector.png" alt="Home" />
+              <img src="Assets/setting.png" alt="Settings" />
               <span>Settings</span>
             </div>
           </div>
@@ -70,8 +70,8 @@
           <div>
             <div class="help-title">Having trouble?</div>
             <div class="help-desc">
-              Feel free to contact us and we will always help you through the
-              process.
+              Feel free to contact us and we will <br />
+              help you through the process.
             </div>
             <button class="help-btn">Contact us</button>
           </div>
@@ -85,36 +85,40 @@
         <div class="right-content">
           <div class="nav-text">
             <span class="nav-home">Home</span>
-            <span class="nav-sep">></span>
+            <img src="Assets/right_arrow.png" />
             <span class="nav-current">Documents</span>
           </div>
 
           <div class="title-row">
             <h1>My Documents</h1>
-            <input
-              class="search-input"
-              type="text"
-              placeholder="Search documents"
-            />
+            <div class="search-box">
+              <input
+                class="search-input"
+                type="text"
+                placeholder="Search documents"
+              />
+              <img src="Assets/search.png" alt="Search box" />
+            </div>
           </div>
 
           <div class="doc-box">
             <!-- Header -->
 
-            <div class="doc-row doc-header">
+            <div class="doc-row doc-header doc-item">
               <div class="col-check">
                 <input type="checkbox" />
-              </div>
-              <div class="col-name name-header">
-                <span>Document Name</span>
                 <img
                   src="Assets/dropdown.png"
                   alt="Dropdown"
                   class="dropdown-right"
                 />
               </div>
+              <div class="col-name name-header">
+                <span>Document Name</span>
+              </div>
               <div class="col-status">Status</div>
               <div class="col-date">Last Modified</div>
+              <div class="col-action"></div>
             </div>
 
             <!-- Document Items -->
@@ -146,7 +150,9 @@
               </div>
               <div class="col-status">
                 <span class="status-pill pending">Pending</span>
-                <div class="waiting-text">Waiting for 1 person</div>
+                <div class="waiting-text">
+                  Waiting for <span style="color: #436d7c">1 person</span>
+                </div>
               </div>
               <div class="col-date">
                 <span class="doc-date">10/22/2024<br />2:01 pm</span>
@@ -166,7 +172,9 @@
               </div>
               <div class="col-status">
                 <span class="status-pill pending">Pending</span>
-                <div class="waiting-text">Waiting for 2 people</div>
+                <div class="waiting-text">
+                  Waiting for <span style="color: #436d7c">2 people</span>
+                </div>
               </div>
               <div class="col-date">
                 <span class="doc-date">10/22/2024<br />2:01 pm</span>

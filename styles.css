@@ -1,8 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300..700&display=swap");
+@font-face {
+  font-family: "CarnokyType Zin Display Demo";
+  src: url("fonts/CarnokyType - Zin Display Demo.otf") format("opentype");
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Spline Sans", sans-serif;
 }
 
 .main {
@@ -16,7 +21,6 @@
 
   display: flex;
   justify-content: space-between;
-  /* align-items: flex-start; */
   flex-direction: column;
 
   padding: 20px 0;
@@ -29,13 +33,6 @@
 .Neptune {
   width: 40px;
   height: 40px;
-
-  /* border-radius: 50%; */
-  /* border: 1px solid black; */
-  /* display: flex;
-    justify-content: center;
-    align-items: flex-start;*/
-
   padding: 30px 50px;
 }
 
@@ -43,7 +40,6 @@
   display: flex;
   align-items: center;
   gap: 12px;
-
   border: 1px solid #f3f2f1;
   padding: 12px 16px;
   margin: 30px 50px;
@@ -60,10 +56,10 @@
   flex: 1;
 }
 
-/* .user-name {
-    font-size: 14px;
-    font-weight: 400;
-} */
+.user-name {
+  font-size: 16px;
+  font-weight: 600;
+}
 
 .user-role {
   color: #626d82;
@@ -72,39 +68,33 @@
 
 .user-right img {
   width: 14px;
-  height: 14px;
+  height: 8px;
 }
 
 .menu {
   margin-top: 20px;
   padding: 0 50px;
-
   display: flex;
   flex-direction: column;
-
-  /* gap: 0; */
 }
 
 .menu-item {
   display: flex;
   align-items: center;
   gap: 12px;
-
   padding: 14px 16px;
   border-radius: 6px;
-
   margin-bottom: 6px;
-  /* margin: 0; */
   cursor: pointer;
 }
 
 .menu-item img {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
 }
 
 .menu-item span {
-  font-size: 14px;
+  font-size: 16px;
   color: #626d82;
 }
 
@@ -118,26 +108,30 @@
 
 .bottom {
   padding: 20px 50px;
-
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
 .bottom img {
-  width: 20px;
-  height: 20px;
+  width: 33px;
+  height: 33px;
+  margin-bottom: 12px;
 }
 
 .help-title {
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 500;
   color: #1f4451;
 }
 
 .help-desc {
-  font-size: 12px;
+  font-weight: 400;
+  font-size: 16px;
   color: #626d82;
   margin: 6px 0;
+  margin-bottom: 20px;
 }
 
 .help-btn {
@@ -147,7 +141,6 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  /* margin-top: 20px; */
 }
 
 /* right-side */
@@ -155,7 +148,7 @@
 .right {
   flex: 3;
   background-color: #f3f2f1;
-
+  padding: 0 50px;
   display: flex;
   flex-direction: column;
 }
@@ -172,17 +165,19 @@
 }
 
 .nav-text {
-  font-size: 14px;
-  margin-bottom: 12px;
+  font-size: 16px;
+  margin: 14px 0;
 }
 
 .nav-home {
   color: #436d7c;
 }
 
-.nav-sep {
+.nav-text img {
   color: #d1d5db;
-  margin: 0 8px;
+  width: 8px;
+  height: 8px;
+  margin: 0 20px;
 }
 
 .nav-current {
@@ -194,13 +189,35 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 24px;
+  margin: 30px 0;
 }
 
 .title-row h1 {
-  font-size: 28px;
-  font-weight: 500;
-  color: #1f2937;
+  font-family: "CarnokyType Zin Display Demo", sans-serif;
+  font-size: 33px;
+  font-weight: 400;
+  color: #2a2a2a;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: solid 1px #b5bdcd;
+  width: 300px;
+  background-color: white;
+  border-radius: 6px;
+}
+
+.search-box input {
+  border: none;
+}
+
+.search-box img {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-left: 260px;
 }
 
 .search-input::placeholder {
@@ -220,8 +237,9 @@
 
 .doc-box {
   background-color: white;
+  border: solid 0.2px #d7dce6;
   border-radius: 8px;
-  padding: 16px 20px;
+  /* padding: 16px 20px; */
 }
 
 .doc-row {
@@ -230,30 +248,45 @@
 }
 
 .doc-header {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
-  color: #6b7280;
+  color: #2a2a2a;
   padding-bottom: 12px;
 }
 
 .doc-item {
-  padding: 16px 0;
-  border-top: 1px solid #e5e7eb;
+  padding: 16px 20px;
+  border-top: 1px solid #e8ecf1;
 }
 
 .doc-title {
-  font-size: 14px;
+  font-size: 16px;
   color: #436d7c;
+  font-weight: 600;
 }
 
 .doc-date {
-  font-size: 14px;
+  font-size: 16px;
   color: #6b7280;
   line-height: 1.4;
 }
 
 .col-check {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   width: 40px;
+  color: #bababa;
+}
+
+input[type="checkbox"] {
+  accent-color: #d3f7b5;
+}
+
+.col-check img {
+  width: 10px;
+  height: 6px;
+  align-self: center;
 }
 
 .col-name {
@@ -269,11 +302,12 @@
 }
 
 .col-action {
-  width: 140px;
+  width: 160px;
   display: flex;
   align-items: center;
   gap: 8px;
-  justify-content: flex-end;
+  justify-content: center;
+  color: #626d82;
 }
 
 .name-header {
@@ -292,13 +326,20 @@
   display: inline-block;
   padding: 6px 12px;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 500;
 }
 
 .pending {
-  background-color: #e5e7eb;
-  color: #6b7280;
+  background-color: #e8ecf1;
+  color: #626d82;
+  font-weight: 500;
+}
+
+.needs-signing {
+  background-color: #436d7c;
+  color: white;
+  font-weight: 500;
 }
 
 .completed {
@@ -307,8 +348,8 @@
 }
 
 .waiting-text {
-  font-size: 12px;
-  color: #9ca3af;
+  font-size: 16px;
+  color: #b5bdcd;
   font-style: italic;
   margin-top: 2px;
 }
@@ -319,8 +360,9 @@
   background-color: white;
   border-radius: 6px;
   font-size: 13px;
-  color: #374151;
+  color: #626d82;
   cursor: pointer;
+  width: 200px;
 }
 
 .action-btn:hover {
