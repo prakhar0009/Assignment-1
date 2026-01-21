@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -70,8 +70,7 @@
           <div>
             <div class="help-title">Having trouble?</div>
             <div class="help-desc">
-              Feel free to contact us and we will <br />
-              help you through the process.
+              Feel free to contact us and we will help you through the process.
             </div>
             <button class="help-btn">Contact us</button>
           </div>
@@ -100,147 +99,173 @@
               <img src="Assets/search.png" alt="Search box" />
             </div>
           </div>
-
           <div class="doc-box">
-            <!-- Header -->
+            <table class="doc-table">
+              <!-- Header -->
+              <tr class="doc-header">
+                <th class="col-check">
+                  <input type="checkbox" />
+                  <img src="Assets/dropdown.png" class="dropdown-right" />
+                </th>
+                <th class="col-name">Document Name</th>
+                <th class="col-status">Status</th>
+                <th class="col-date">Last Modified</th>
+                <th class="col-action"></th>
+              </tr>
 
-            <div class="doc-row doc-header doc-item">
-              <div class="col-check">
-                <input type="checkbox" />
-                <img
-                  src="Assets/dropdown.png"
-                  alt="Dropdown"
-                  class="dropdown-right"
-                />
-              </div>
-              <div class="col-name name-header">
-                <span>Document Name</span>
-              </div>
-              <div class="col-status">Status</div>
-              <div class="col-date">Last Modified</div>
-              <div class="col-action"></div>
-            </div>
+              <!-- Document Items -->
+              <tbody>
+                <!-- Row 1 -->
+                <tr class="doc-item">
+                  <td class="col-check">
+                    <input type="checkbox" />
+                  </td>
 
-            <!-- Document Items -->
-            <div class="doc-row doc-item">
-              <div class="col-check">
-                <input type="checkbox" />
-              </div>
-              <div class="col-name">
-                <span class="doc-title">Title of Document Goes Here</span>
-              </div>
-              <div class="col-status">
-                <span class="status-pill needs-signing">Needs Signing</span>
-              </div>
-              <div class="col-date">
-                <span class="doc-date">10/22/2024<br />2:01 pm</span>
-              </div>
-              <div class="col-action">
-                <button class="action-btn">Sign now</button>
-                <button class="menu-dots">⋮</button>
-              </div>
-            </div>
+                  <td class="col-name">
+                    <span class="doc-title">Title of Document Goes Here</span>
+                  </td>
 
-            <div class="doc-row doc-item">
-              <div class="col-check">
-                <input type="checkbox" />
-              </div>
-              <div class="col-name">
-                <span class="doc-title">Title of Document Goes Here</span>
-              </div>
-              <div class="col-status">
-                <span class="status-pill pending">Pending</span>
-                <div class="waiting-text">
-                  Waiting for <span style="color: #436d7c">1 person</span>
-                </div>
-              </div>
-              <div class="col-date">
-                <span class="doc-date">10/22/2024<br />2:01 pm</span>
-              </div>
-              <div class="col-action">
-                <button class="action-btn">Preview</button>
-                <button class="menu-dots">⋮</button>
-              </div>
-            </div>
+                  <td class="col-status">
+                    <span class="status-pill needs-signing">Needs Signing</span>
+                  </td>
 
-            <div class="doc-row doc-item">
-              <div class="col-check">
-                <input type="checkbox" />
-              </div>
-              <div class="col-name">
-                <span class="doc-title">Title of Document Goes Here</span>
-              </div>
-              <div class="col-status">
-                <span class="status-pill pending">Pending</span>
-                <div class="waiting-text">
-                  Waiting for <span style="color: #436d7c">2 people</span>
-                </div>
-              </div>
-              <div class="col-date">
-                <span class="doc-date">10/22/2024<br />2:01 pm</span>
-              </div>
-              <div class="col-action">
-                <button class="action-btn">Preview</button>
-                <button class="menu-dots">⋮</button>
-              </div>
-            </div>
+                  <td class="col-date">
+                    <span class="doc-date">10/22/2024<br />2:01 pm</span>
+                  </td>
 
-            <div class="doc-row doc-item">
-              <div class="col-check">
-                <input type="checkbox" />
-              </div>
-              <div class="col-name">
-                <span class="doc-title">Title of Document Goes Here</span>
-              </div>
-              <div class="col-status">
-                <span class="status-pill completed">Completed</span>
-              </div>
-              <div class="col-date">
-                <span class="doc-date">10/22/2024<br />2:01 pm</span>
-              </div>
-              <div class="col-action">
-                <button class="action-btn">Download PDF</button>
-                <button class="menu-dots">⋮</button>
-              </div>
-            </div>
+                  <td class="col-action">
+                    <button class="action-btn">Sign now</button>
+                    <button class="menu-dots">⋮</button>
+                  </td>
+                </tr>
 
-            <div class="doc-row doc-item">
-              <div class="col-check">
-                <input type="checkbox" />
-              </div>
-              <div class="col-name">
-                <span class="doc-title">Title of Document Goes Here</span>
-              </div>
-              <div class="col-status">
-                <span class="status-pill completed">Completed</span>
-              </div>
-              <div class="col-date">
-                <span class="doc-date">10/22/2024<br />2:01 pm</span>
-              </div>
-              <div class="col-action">
-                <button class="action-btn">Download PDF</button>
-                <button class="menu-dots">⋮</button>
-              </div>
-            </div>
+                <!-- Row 2 -->
+                <tr class="doc-item">
+                  <td class="col-check">
+                    <input type="checkbox" />
+                  </td>
 
-            <div class="doc-row doc-item">
-              <div class="col-check">
-                <input type="checkbox" />
-              </div>
-              <div class="col-name">
-                <span class="doc-title">Title of Document Goes Here</span>
-              </div>
-              <div class="col-status">
-                <span class="status-pill completed">Completed</span>
-              </div>
-              <div class="col-date">
-                <span class="doc-date">10/22/2024<br />2:01 pm</span>
-              </div>
-              <div class="col-action">
-                <button class="action-btn">Download PDF</button>
-                <button class="menu-dots">⋮</button>
-              </div>
-            </div>
+                  <td class="col-name">
+                    <span class="doc-title">Title of Document Goes Here</span>
+                  </td>
+
+                  <td class="col-status">
+                    <span class="status-pill pending">Pending</span>
+                    <div class="waiting-text">
+                      Waiting for <span style="color: #436d7c">1 person</span>
+                    </div>
+                  </td>
+
+                  <td class="col-date">
+                    <span class="doc-date">10/22/2024<br />2:01 pm</span>
+                  </td>
+
+                  <td class="col-action">
+                    <button class="action-btn">Preview</button>
+                    <button class="menu-dots">⋮</button>
+                  </td>
+                </tr>
+
+                <!-- Row 3 -->
+                <tr class="doc-item">
+                  <td class="col-check">
+                    <input type="checkbox" />
+                  </td>
+
+                  <td class="col-name">
+                    <span class="doc-title">Title of Document Goes Here</span>
+                  </td>
+
+                  <td class="col-status">
+                    <span class="status-pill pending">Pending</span>
+                    <div class="waiting-text">
+                      Waiting for <span style="color: #436d7c">2 people</span>
+                    </div>
+                  </td>
+
+                  <td class="col-date">
+                    <span class="doc-date">10/22/2024<br />2:01 pm</span>
+                  </td>
+
+                  <td class="col-action">
+                    <button class="action-btn">Preview</button>
+                    <button class="menu-dots">⋮</button>
+                  </td>
+                </tr>
+
+                <!-- Row 4 -->
+                <tr class="doc-item">
+                  <td class="col-check">
+                    <input type="checkbox" />
+                  </td>
+
+                  <td class="col-name">
+                    <span class="doc-title">Title of Document Goes Here</span>
+                  </td>
+
+                  <td class="col-status">
+                    <span class="status-pill completed">Completed</span>
+                  </td>
+
+                  <td class="col-date">
+                    <span class="doc-date">10/22/2024<br />2:01 pm</span>
+                  </td>
+
+                  <td class="col-action">
+                    <button class="action-btn">Download PDF</button>
+                    <button class="menu-dots">⋮</button>
+                  </td>
+                </tr>
+
+                <!-- Row 5 -->
+                <tr class="doc-item">
+                  <td class="col-check">
+                    <input type="checkbox" />
+                  </td>
+
+                  <td class="col-name">
+                    <span class="doc-title">Title of Document Goes Here</span>
+                  </td>
+
+                  <td class="col-status">
+                    <span class="status-pill completed">Completed</span>
+                  </td>
+
+                  <td class="col-date">
+                    <span class="doc-date">10/22/2024<br />2:01 pm</span>
+                  </td>
+
+                  <td class="col-action">
+                    <button class="action-btn">Download PDF</button>
+                    <button class="menu-dots">⋮</button>
+                  </td>
+                </tr>
+
+                <!-- Row 6 -->
+                <tr class="doc-item">
+                  <td class="col-check">
+                    <input type="checkbox" />
+                  </td>
+
+                  <td class="col-name">
+                    <span class="doc-title">Title of Document Goes Here</span>
+                  </td>
+
+                  <td class="col-status">
+                    <span class="status-pill completed">Completed</span>
+                  </td>
+
+                  <td class="col-date">
+                    <span class="doc-date">10/22/2024<br />2:01 pm</span>
+                  </td>
+
+                  <td class="col-action">
+                    <button class="action-btn">Download PDF</button>
+                    <button class="menu-dots">⋮</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

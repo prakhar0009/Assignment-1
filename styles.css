@@ -10,9 +10,17 @@
   font-family: "Spline Sans", sans-serif;
 }
 
+html {
+  font-size: 16px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
 .main {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .left {
@@ -42,7 +50,6 @@
   gap: 12px;
   border: 1px solid #f3f2f1;
   padding: 12px 16px;
-  margin: 30px 50px;
   border-radius: 8px;
 }
 
@@ -72,7 +79,6 @@
 }
 
 .menu {
-  margin-top: 20px;
   padding: 0 50px;
   display: flex;
   flex-direction: column;
@@ -84,7 +90,6 @@
   gap: 12px;
   padding: 14px 16px;
   border-radius: 6px;
-  margin-bottom: 6px;
   cursor: pointer;
 }
 
@@ -108,7 +113,6 @@
 
 .bottom {
   padding: 20px 50px;
-  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -117,7 +121,6 @@
 .bottom img {
   width: 33px;
   height: 33px;
-  margin-bottom: 12px;
 }
 
 .help-title {
@@ -130,8 +133,6 @@
   font-weight: 400;
   font-size: 16px;
   color: #626d82;
-  margin: 6px 0;
-  margin-bottom: 20px;
 }
 
 .help-btn {
@@ -159,14 +160,16 @@
 }
 
 .right-content {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
   padding: 24px 40px;
   background-color: #f3f2f1;
 }
 
 .nav-text {
   font-size: 16px;
-  margin: 14px 0;
 }
 
 .nav-home {
@@ -177,7 +180,6 @@
   color: #d1d5db;
   width: 8px;
   height: 8px;
-  margin: 0 20px;
 }
 
 .nav-current {
@@ -189,7 +191,6 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin: 30px 0;
 }
 
 .title-row h1 {
@@ -217,7 +218,6 @@
   position: absolute;
   width: 20px;
   height: 20px;
-  margin-left: 260px;
 }
 
 .search-input::placeholder {
@@ -239,24 +239,49 @@
   background-color: white;
   border: solid 0.2px #d7dce6;
   border-radius: 8px;
-  /* padding: 16px 20px; */
 }
 
-.doc-row {
-  display: flex;
-  align-items: center;
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
 }
-
-.doc-header {
-  font-size: 16px;
-  font-weight: 500;
-  color: #2a2a2a;
-  padding-bottom: 12px;
-}
-
-.doc-item {
+.doc-header th {
   padding: 16px 20px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.doc-header .col-check {
+  width: 80px;
+  padding-left: 20px;
+}
+
+.doc-header .col-name {
+  width: auto;
+}
+
+.doc-header .col-status {
+  width: 250px;
+  padding-left: 40px;
+}
+
+.doc-header .col-date {
+  width: 200px;
+  text-align: center;
+}
+
+.doc-header .col-action {
+  justify-content: flex-end;
+  width: 200px;
+}
+
+tr {
   border-top: 1px solid #e8ecf1;
+}
+
+.doc-item td {
+  padding: 16px 20px;
+  vertical-align: middle;
 }
 
 .doc-title {
@@ -269,13 +294,14 @@
   font-size: 16px;
   color: #6b7280;
   line-height: 1.4;
+  text-align: left;
 }
 
 .col-check {
   display: flex;
   align-items: center;
   gap: 5px;
-  width: 40px;
+  width: 80px;
   color: #bababa;
 }
 
@@ -290,24 +316,23 @@ input[type="checkbox"] {
 }
 
 .col-name {
-  flex: 2;
+  width: auto;
 }
 
 .col-status {
-  flex: 1;
+  padding-left: 16px;
 }
 
 .col-date {
-  flex: 1;
+  text-align: center;
 }
 
 .col-action {
-  width: 160px;
+  color: #626d82;
   display: flex;
   align-items: center;
   gap: 8px;
-  justify-content: center;
-  color: #626d82;
+  justify-content: flex-end;
 }
 
 .name-header {
@@ -351,7 +376,6 @@ input[type="checkbox"] {
   font-size: 16px;
   color: #b5bdcd;
   font-style: italic;
-  margin-top: 2px;
 }
 
 .action-btn {
@@ -362,7 +386,8 @@ input[type="checkbox"] {
   font-size: 13px;
   color: #626d82;
   cursor: pointer;
-  width: 200px;
+  width: auto;
+  min-width: 120px;
 }
 
 .action-btn:hover {
