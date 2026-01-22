@@ -5,9 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neptune</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
     <div class="main">
+      <dialog id="docDialog" class="doc-dialog">
+        <form method="dialog" id="docForm">
+          <h3>Add New Document</h3>
+
+          <input
+            type="text"
+            id="docTitle"
+            placeholder="Document Title"
+            required
+          />
+
+          <select id="docStatus">
+            <option value="Needs Signing">Needs Signing</option>
+            <option value="Pending">Pending</option>
+            <option value="Completed">Completed</option>
+          </select>
+
+          <div class="dialog-actions">
+            <button type="button" id="cancelBtn">Cancel</button>
+            <button type="submit">Save</button>
+          </div>
+        </form>
+      </dialog>
+
       <!-- Left -->
 
       <div class="left">
@@ -89,13 +114,16 @@
 
           <div class="title-row">
             <h1>My Documents</h1>
-            <div class="search-box">
-              <input
-                class="search-input"
-                type="text"
-                placeholder="Search documents"
-              />
-              <img src="Assets/search.png" alt="Search box" />
+            <div class="add-btn-search-box">
+              <button class="add-btn">+</button>
+              <div class="search-box">
+                <input
+                  class="search-input"
+                  type="text"
+                  placeholder="Search documents"
+                />
+                <img src="Assets/search.png" alt="Search box" />
+              </div>
             </div>
           </div>
           <div class="doc-box">
@@ -139,7 +167,7 @@
                 </tr>
 
                 <!-- Row 2 -->
-                <tr class="doc-item">
+                <!-- <tr class="doc-item">
                   <td class="col-check">
                     <input type="checkbox" />
                   </td>
@@ -163,10 +191,10 @@
                     <button class="action-btn">Preview</button>
                     <button class="menu-dots">⋮</button>
                   </td>
-                </tr>
+                </tr> -->
 
                 <!-- Row 3 -->
-                <tr class="doc-item">
+                <!-- <tr class="doc-item">
                   <td class="col-check">
                     <input type="checkbox" />
                   </td>
@@ -190,10 +218,10 @@
                     <button class="action-btn">Preview</button>
                     <button class="menu-dots">⋮</button>
                   </td>
-                </tr>
+                </tr> -->
 
                 <!-- Row 4 -->
-                <tr class="doc-item">
+                <!-- <tr class="doc-item">
                   <td class="col-check">
                     <input type="checkbox" />
                   </td>
@@ -214,10 +242,10 @@
                     <button class="action-btn">Download PDF</button>
                     <button class="menu-dots">⋮</button>
                   </td>
-                </tr>
+                </tr> -->
 
                 <!-- Row 5 -->
-                <tr class="doc-item">
+                <!-- <tr class="doc-item">
                   <td class="col-check">
                     <input type="checkbox" />
                   </td>
@@ -238,10 +266,10 @@
                     <button class="action-btn">Download PDF</button>
                     <button class="menu-dots">⋮</button>
                   </td>
-                </tr>
+                </tr> -->
 
                 <!-- Row 6 -->
-                <tr class="doc-item">
+                <!-- <tr class="doc-item">
                   <td class="col-check">
                     <input type="checkbox" />
                   </td>
@@ -262,11 +290,45 @@
                     <button class="action-btn">Download PDF</button>
                     <button class="menu-dots">⋮</button>
                   </td>
-                </tr>
+                </tr> -->
               </tbody>
             </table>
           </div>
         </div>
+      </div>
+    </div>
+    <!-- Dialog Box -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-box">
+        <h3>Add details</h3>
+        <!-- Document Name -->
+        <form id="documentForm">
+          <div class="form-group">
+            <label>Document Name</label>
+            <input type="text" id="docName" placeholder="Enter document name" required/>
+          </div>
+          <!-- Status -->
+          <div class="form-group">
+            <label>Status</label>
+            <select id="docStatus" required>
+              <option value="">Select status</option>
+              <option value="needs-signing">Needs-Signing</option>
+              <option value="pending">Pending</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+          <!-- Last Modified -->
+          <div class="form-group">
+            <label>Last Modified</label>
+            <div class="auto-date" id="lastModifiedText">
+              Auto-generated
+            </div>
+          </div>
+          <!-- Actions -->
+          <div class="modal-actions">
+            <button type="submit">Add</button>
+          </div>
+        </form>
       </div>
     </div>
   </body>
