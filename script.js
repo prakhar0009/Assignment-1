@@ -3,6 +3,12 @@ const modalOverlay = document.querySelector(".modal-overlay");
 const modalBox = document.querySelector(".modal-box");
 const form = document.getElementById("documentForm");
 const lastModifiedText = document.getElementById("lastModifiedText");
+const userCard = document.querySelector(".user-card");
+const logOut = document.querySelector(".log-out");
+const additional = document.querySelector(".additional");
+const menuDots = document.querySelector(".menu-dots");
+const docStatus = document.querySelector(".docStatus");
+const forPending = document.querySelector(".for-pending");
 
 addBtn.addEventListener("click", (e) => {
   e.stopPropagation(); // prevent immediate close
@@ -28,3 +34,25 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   modalOverlay.classList.remove("active");
 });
+
+userCard.addEventListener("click", function () {
+  logOut.style.display = logOut.style.display === "none" ? "flex" : "none";
+});
+
+menuDots.addEventListener("click", function () {
+  additional.style.display =
+    additional.style.display === "none" ? "flex" : "none";
+});
+
+docStatus.addEventListener("change", function () {
+  console.log(docStatus.value);
+  statusChange();
+});
+
+function statusChange() {
+  if (docStatus.value === "pending") forPending.style.display = "block";
+  else {
+    forPending.style.display = "none";
+    forPending.value = "";
+  }
+}

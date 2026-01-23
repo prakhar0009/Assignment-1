@@ -6,6 +6,10 @@
     <title>Neptune</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
   </head>
   <body>
     <div class="main">
@@ -57,6 +61,12 @@
             </div>
           </section>
 
+          <!-- Log Out -->
+
+          <div class="log-out">
+            <i class="fas fa-sign-out"></i>
+            <p style="padding-left: 5px">Log out</p>
+          </div>
           <!-- Menu Item -->
 
           <div class="menu">
@@ -163,6 +173,15 @@
                   <td class="col-action">
                     <button class="action-btn">Sign now</button>
                     <button class="menu-dots">⋮</button>
+
+                    <div class="additional">
+                      <button class="additional-pill" style="color: gray">
+                        Edit
+                      </button>
+                      <button class="additional-pill" style="color: red">
+                        Delete
+                      </button>
+                    </div>
                   </td>
                 </tr>
 
@@ -305,24 +324,31 @@
         <form id="documentForm">
           <div class="form-group">
             <label>Document Name</label>
-            <input type="text" id="docName" placeholder="Enter document name" required/>
+            <input
+              type="text"
+              id="docName"
+              placeholder="Enter document name"
+              required
+            />
           </div>
           <!-- Status -->
           <div class="form-group">
             <label>Status</label>
-            <select id="docStatus" required>
+            <select class="docStatus" required>
               <option value="">Select status</option>
               <option value="needs-signing">Needs-Signing</option>
               <option value="pending">Pending</option>
               <option value="completed">Completed</option>
             </select>
           </div>
+          <div class="for-pending">
+            <label>Person Waiting</label>
+            <input type="number" id="docName" placeholder="0" required min="0" />
+          </div>
           <!-- Last Modified -->
           <div class="form-group">
             <label>Last Modified</label>
-            <div class="auto-date" id="lastModifiedText">
-              Auto-generated
-            </div>
+            <div class="auto-date" id="lastModifiedText">Auto-generated</div>
           </div>
           <!-- Actions -->
           <div class="modal-actions">

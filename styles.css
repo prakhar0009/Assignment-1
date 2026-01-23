@@ -82,6 +82,16 @@ body {
   height: 8px;
 }
 
+.log-out {
+  display: none;
+  border: 1px solid #f3f2f1;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: red;
+  cursor: pointer;
+  justify-content: center;
+}
+
 .menu {
   /* padding: 0 10px; */
   display: flex;
@@ -164,9 +174,11 @@ body {
 }
 
 .right-content {
+  margin: auto;
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 95%;
   justify-content: flex-start;
   gap: 30px;
   padding: 24px 40px;
@@ -310,6 +322,7 @@ body {
 
 tr {
   border-top: 1px solid #e8ecf1;
+  position: relative;
 }
 
 .doc-item td {
@@ -436,9 +449,27 @@ input[type="checkbox"] {
   color: #6b7280;
 }
 
+.additional {
+  display: none;
+  flex-direction: column;
+  column-gap: 10px;
+  right: -50px;
+  top: 50px;
+  position: absolute;
+}
+
+.additional-pill {
+  padding: 6px 12px;
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid gray;
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+
 /* dialog box */
 
-./* Dialog box styles */
+/* Dialog box styles */
 .doc-dialog {
   border: none;
   padding: 0;
@@ -464,7 +495,9 @@ input[type="checkbox"] {
   border-radius: 12px;
   padding: 32px;
   width: 420px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .doc-dialog h3 {
@@ -589,7 +622,7 @@ input[type="checkbox"] {
 .modal-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 10px;  
+  gap: 10px;
   margin-top: 20px;
 }
 
@@ -608,4 +641,26 @@ input[type="checkbox"] {
   padding: 8px 14px;
   border-radius: 6px;
   cursor: pointer;
+}
+
+/* For Pending */
+
+.for-pending {
+  margin-bottom: 16px;
+  display: none;
+}
+
+.for-pending label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+.for-pending input,
+.for-pending select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  outline: none;
 }
