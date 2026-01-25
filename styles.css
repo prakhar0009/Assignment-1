@@ -93,7 +93,6 @@ body {
 }
 
 .menu {
-  /* padding: 0 10px; */
   display: flex;
   flex-direction: column;
   align-content: flex-start;
@@ -290,6 +289,12 @@ body {
   width: 100%;
   border-collapse: collapse;
 }
+
+.header-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
 .doc-header th {
   padding: 16px 20px;
   text-align: left;
@@ -452,24 +457,35 @@ input[type="checkbox"] {
 .additional {
   display: none;
   flex-direction: column;
-  column-gap: 10px;
-  right: -50px;
+  gap: 8px;
+  right: 10px;
   top: 50px;
   position: absolute;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
 }
 
 .additional-pill {
-  padding: 6px 12px;
-  font-size: 15px;
+  padding: 8px 16px;
+  font-size: 14px;
   font-weight: 500;
-  border: 1px solid gray;
-  background-color: whitesmoke;
+  border: none;
+  background-color: white;
   cursor: pointer;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.additional-pill:hover {
+  background-color: #f3f4f6;
 }
 
 /* dialog box */
 
-/* Dialog box styles */
 .doc-dialog {
   border: none;
   padding: 0;
@@ -642,8 +658,6 @@ input[type="checkbox"] {
   border-radius: 6px;
   cursor: pointer;
 }
-
-/* For Pending */
 
 .for-pending {
   margin-bottom: 16px;
