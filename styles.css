@@ -78,8 +78,14 @@ body {
 }
 
 .user-right img {
-  width: 14px;
-  height: 8px;
+  width: 16px;
+  height: 10px;
+}
+
+.user-right:hover{
+  cursor: pointer;
+  border: 1px solid #626d82;
+  background-color: #e8ecf1;
 }
 
 .log-out {
@@ -494,13 +500,6 @@ input[type="checkbox"] {
 
 .additional-pill:hover {
   background-color: #f3f4f6;
-}
-#edit {
-  
-}
-
-#delete{
-
 }
 
 /* dialog box */

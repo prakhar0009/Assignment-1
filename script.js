@@ -1,22 +1,20 @@
-// Global Selectors
 const addBtn = document.querySelector(".add-btn");
 const modalOverlay = document.querySelector(".modal-overlay");
 const modalBox = document.querySelector(".modal-box");
 const form = document.getElementById("documentForm");
 const lastModifiedText = document.getElementById("lastModifiedText");
-const userCard = document.querySelector(".user-card");
+const dropDown = document.querySelector(".user-right");
 const logOut = document.querySelector(".log-out");
 const docStatus = document.querySelector(".docStatus");
 const forPending = document.querySelector(".for-pending");
 const searchInput = document.querySelector(".search-input");
 
-let editIndex = null; // Track if we are editing an existing row
+let editIndex = null;
 
-// --- Modal Logic ---
 
 addBtn.addEventListener("click", (e) => {
   e.stopPropagation();
-  editIndex = null; // Reset edit index for a new entry
+  editIndex = null;
   form.reset();
   forPending.style.display = "none";
   modalOverlay.querySelector("h3").innerText = "Add details";
@@ -36,8 +34,6 @@ modalOverlay.addEventListener("click", () => {
 modalBox.addEventListener("click", (e) => {
   e.stopPropagation();
 });
-
-// --- Form Submission (Add or Edit) ---
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -59,11 +55,9 @@ form.addEventListener("submit", (e) => {
   const updatedDoc = { title, status, waiting, lastModified };
 
   if (editIndex !== null) {
-    // Edit existing document
     docs[editIndex] = updatedDoc;
     editIndex = null;
   } else {
-    // Add new document
     docs.push(updatedDoc);
   }
 
@@ -75,9 +69,7 @@ form.addEventListener("submit", (e) => {
   forPending.style.display = "none";
 });
 
-// --- User Interaction & Status Logic ---
-
-userCard.addEventListener("click", function () {
+dropDown.addEventListener("click", function () {
   logOut.style.display = logOut.style.display === "none" ? "flex" : "none";
 });
 
@@ -91,8 +83,6 @@ function statusChange() {
     forPending.querySelector("input").value = "";
   }
 }
-
-// --- Data Persistence ---
 
 const STORAGE_KEY = "documents";
 
@@ -109,8 +99,6 @@ function writeDocs(docs) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(docs));
 }
 
-// --- Table Rendering ---
-
 function renderTable() {
   const tbody = document.querySelector(".doc-table tbody");
   if (!tbody) return;
@@ -120,8 +108,6 @@ function renderTable() {
 }
 
 document.addEventListener("DOMContentLoaded", renderTable);
-
-// --- Search Logic ---
 
 searchInput.addEventListener("input", function () {
   const searchValue = this.value.toLowerCase();
@@ -137,13 +123,10 @@ searchInput.addEventListener("input", function () {
   });
 });
 
-// --- Row Creation with Local Listeners ---
-
 function createRow(doc) {
   const tr = document.createElement("tr");
   tr.className = "doc-item";
 
-  // Logic for dynamic display text
   const statusClass = doc.status || "pending";
   const statusDisplay = statusClass === "needs-signing" ? "Needs Signing" : statusClass.charAt(0).toUpperCase() + statusClass.slice(1);
   const actionText = statusClass === "completed" ? "Download PDF" : statusClass === "needs-signing" ? "Sign now" : "Preview";
@@ -171,14 +154,12 @@ function createRow(doc) {
   const rowEditBtn = tr.querySelector(".edit-row");
   const rowDeleteBtn = tr.querySelector(".delete-row");
 
-  // Toggle Menu
   menuDots.addEventListener("click", (e) => {
     e.stopPropagation();
     document.querySelectorAll(".additional").forEach(m => m !== additional && (m.style.display = "none"));
     additional.style.display = additional.style.display === "flex" ? "none" : "flex";
   });
 
-  // Edit Row Logic
   rowEditBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     const docs = readDocs();
@@ -196,7 +177,6 @@ function createRow(doc) {
     additional.style.display = "none";
   });
 
-  // Delete Row Logic
   rowDeleteBtn.addEventListener("click", (e) => {
     e.stopPropagation();
 
