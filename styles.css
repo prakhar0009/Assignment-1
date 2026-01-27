@@ -317,7 +317,7 @@ body {
 
 .doc-header .col-date {
   width: 200px;
-  text-align: center;
+  text-align: right;
 }
 
 .doc-header .col-action {
@@ -332,7 +332,7 @@ tr {
 
 .doc-item td {
   padding: 16px 20px;
-  vertical-align: middle;
+  vertical-align: middle; 
 }
 
 .doc-title {
@@ -366,16 +366,28 @@ input[type="checkbox"] {
   align-self: center;
 }
 
-.col-name {
+.doc-item tr {
+  padding: 16px 20px;
+  text-align: left;
+}
+
+.doc-item .col-check {
+  width: 80px;
+  padding-left: 20px;
+}
+
+.doc-item .col-name {
   width: auto;
 }
 
-.col-status {
-  padding-left: 16px;
+.doc-item .col-status {
+  width: 250px;
+  padding-left: 40px;
 }
 
-.col-date {
-  text-align: center;
+.doc-item .col-date {
+  width: 50;
+  text-align: right;
 }
 
 .col-action {
@@ -482,6 +494,13 @@ input[type="checkbox"] {
 
 .additional-pill:hover {
   background-color: #f3f4f6;
+}
+#edit {
+  
+}
+
+#delete{
+
 }
 
 /* dialog box */
