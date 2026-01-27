@@ -85,7 +85,7 @@ body {
 .user-right:hover{
   cursor: pointer;
   border: 1px solid #626d82;
-  background-color: #e8ecf1;
+  background-color: #eef7ee;
 }
 
 .log-out {
@@ -228,14 +228,12 @@ body {
 .add-btn-search-box {
   display: flex;
   position: relative;
-  width: 400px;
-  justify-content: row;
-  gap: 50px;
+  gap: 20px;
 }
 
 .add-btn {
   padding: 8px 16px;
-  border: 1px solid #d1d5db;
+  border: solid 1px #b5bdcd;
   background-color: white;
   border-radius: 6px;
   font-size: 20px;
@@ -460,7 +458,7 @@ input[type="checkbox"] {
 }
 
 .action-btn:hover {
-  background-color: #f9fafb;
+  background-color: #eef7ee;
 }
 
 .menu-dots {

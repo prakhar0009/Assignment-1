@@ -132,7 +132,7 @@ function createRow(doc) {
   const actionText = statusClass === "completed" ? "Download PDF" : statusClass === "needs-signing" ? "Sign now" : "Preview";
 
   tr.innerHTML = `
-    <td class="col-check"><input type="checkbox" /></td>
+    <td class="col-check"><input type="checkbox" style="cursor: pointer;"/></td>
     <td class="col-name"><span class="doc-title">${doc.title || "Untitled"}</span></td>
     <td class="col-status">
       <span class="status-pill ${statusClass}">${statusDisplay}</span>
