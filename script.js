@@ -11,7 +11,6 @@ const searchInput = document.querySelector(".search-input");
 
 let editIndex = null;
 
-
 addBtn.addEventListener("click", (e) => {
   e.stopPropagation();
   editIndex = null;
@@ -38,6 +37,7 @@ modalBox.addEventListener("click", (e) => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  const docId = crypto.randomUUID();
   const title = document.getElementById("docName").value.trim();
   const status = docStatus.value;
   const waiting =
@@ -46,13 +46,22 @@ form.addEventListener("submit", (e) => {
       : 0;
 
   const now = new Date();
-  const lastModified =
-    now.toLocaleDateString() +
-    "<br/>" +
-    now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  const lastModifiedDate = now.toLocaleDateString();
+  const lastMOdifiedTime = now.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  console.log(docId);
 
   const docs = readDocs();
-  const updatedDoc = { title, status, waiting, lastModified };
+  const updatedDoc = {
+    docId,
+    title,
+    status,
+    waiting,
+    lastModifiedDate,
+    lastMOdifiedTime,
+  };
 
   if (editIndex !== null) {
     docs[editIndex] = updatedDoc;
@@ -70,7 +79,9 @@ form.addEventListener("submit", (e) => {
 });
 
 dropDown.addEventListener("click", function () {
-  logOut.style.display = logOut.style.display === "none" ? "flex" : "none";
+  console.log("clicked");
+
+  logOut.style.display = logOut.style.display === "flex" ? "none" : "flex";
 });
 
 docStatus.addEventListener("change", statusChange);
@@ -100,9 +111,10 @@ function writeDocs(docs) {
 }
 
 function renderTable() {
-  const tbody = document.querySelector(".doc-table tbody");
+  const tbody = document.getElementById("docTbody");
+
   if (!tbody) return;
-  tbody.innerHTML = ""; 
+  tbody.innerHTML = "";
   const docs = readDocs();
   docs.forEach((doc) => tbody.appendChild(createRow(doc)));
 }
@@ -113,13 +125,14 @@ searchInput.addEventListener("input", function () {
   const searchValue = this.value.toLowerCase();
   const rows = document.querySelectorAll(".doc-table tbody tr");
 
-  rows.forEach(row => {
+  rows.forEach((row) => {
     const docName = row.querySelector(".col-name").innerText.toLowerCase();
     const status = row.querySelector(".col-status").innerText.toLowerCase();
 
-    row.style.display = (docName.includes(searchValue) || status.includes(searchValue)) 
-      ? "" 
-      : "none";
+    row.style.display =
+      docName.includes(searchValue) || status.includes(searchValue)
+        ? ""
+        : "none";
   });
 });
 
@@ -128,8 +141,16 @@ function createRow(doc) {
   tr.className = "doc-item";
 
   const statusClass = doc.status || "pending";
-  const statusDisplay = statusClass === "needs-signing" ? "Needs Signing" : statusClass.charAt(0).toUpperCase() + statusClass.slice(1);
-  const actionText = statusClass === "completed" ? "Download PDF" : statusClass === "needs-signing" ? "Sign now" : "Preview";
+  const statusDisplay =
+    statusClass === "needs-signing"
+      ? "Needs Signing"
+      : statusClass.charAt(0).toUpperCase() + statusClass.slice(1);
+  const actionText =
+    statusClass === "completed"
+      ? "Download PDF"
+      : statusClass === "needs-signing"
+        ? "Sign now"
+        : "Preview";
 
   tr.innerHTML = `
     <td class="col-check"><input type="checkbox" style="cursor: pointer;"/></td>
@@ -138,7 +159,7 @@ function createRow(doc) {
       <span class="status-pill ${statusClass}">${statusDisplay}</span>
       ${statusClass === "pending" ? `<div class="waiting-text">Waiting for <span style="color:#436d7c">${doc.waiting || 0} person</span></div>` : ""}
     </td>
-    <td class="col-date"><span class="doc-date">${doc.lastModified || "--"}</span></td>
+    <td class="col-date"><span class="doc-date">${doc.lastModifiedDate}</span><br/><span class="doc-date">${doc.lastMOdifiedTime}</span></td>
     <td class="col-action">
       <button class="action-btn">${actionText}</button>
       <button class="menu-dots">⋮</button>
@@ -156,19 +177,22 @@ function createRow(doc) {
 
   menuDots.addEventListener("click", (e) => {
     e.stopPropagation();
-    document.querySelectorAll(".additional").forEach(m => m !== additional && (m.style.display = "none"));
-    additional.style.display = additional.style.display === "flex" ? "none" : "flex";
+    document
+      .querySelectorAll(".additional")
+      .forEach((m) => m !== additional && (m.style.display = "none"));
+    additional.style.display =
+      additional.style.display === "flex" ? "none" : "flex";
   });
 
   rowEditBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     const docs = readDocs();
-    editIndex = docs.findIndex(d => d.title === doc.title && d.lastModified === doc.lastModified);
+    editIndex = docs.findIndex((d) => d.docId === doc.docId);
 
     document.getElementById("docName").value = doc.title;
     docStatus.value = doc.status;
     statusChange();
-    if(doc.status === "pending") {
+    if (doc.status === "pending") {
       forPending.querySelector("input").value = doc.waiting;
     }
 
@@ -180,14 +204,19 @@ function createRow(doc) {
   rowDeleteBtn.addEventListener("click", (e) => {
     e.stopPropagation();
 
-    const isConfirmed = confirm(`Are you sure you want to delete "${doc.title}"?`);
-    
-    if(isConfirmed){
+    const isConfirmed = confirm(
+      `Are you sure you want to delete "${doc.title}"?`,
+    );
+
+    if (isConfirmed) {
       let docs = readDocs();
-      docs = docs.filter(d => d.title !== doc.title || d.lastModified !== doc.lastModified);
+      docs = docs.filter(
+        (d) =>
+          d.docId !== doc.docId,
+      );
       writeDocs(docs);
       renderTable();
-    }else{
+    } else {
       additional.style.display = "none";
     }
   });

@@ -42,12 +42,11 @@
       <div class="left">
         <!-- Top section -->
         <div class="top">
-          <!-- Neptune logo -->
+
           <div class="Neptune">
             <img src="Assets/Neptune.svg" alt="Neptune logo" />
           </div>
 
-          <!-- User card -->
           <section class="user-card">
             <div class="user-left">
               <img src="Assets/logo.png" alt="User-logo" />
@@ -61,13 +60,10 @@
             </div>
           </section>
 
-          <!-- Log Out -->
-
           <div class="log-out">
             <i class="fas fa-sign-out"></i>
             <p style="padding-left: 5px">Log out</p>
           </div>
-          <!-- Menu Item -->
 
           <div class="menu">
             <div class="menu-item">
@@ -137,33 +133,30 @@
             </div>
           </div>
           <div class="doc-box">
-            <table class="header-table">
-              <!-- Header -->
-              <tr class="doc-header">
-                <th class="col-check">
-                  <input type="checkbox" style="cursor: pointer;"/>
-                  <img src="Assets/dropdown.png" class="dropdown-right" />
-                </th>
-                <th class="col-name">Document Name</th>
-                <th class="col-status">Status</th>
-                <th class="col-date">Last Modified</th>
-                <th class="col-action"></th>
-              </tr>
-            </table>
-
             <table class="doc-table">
-              <!-- Document Items -->
-              <tbody></tbody>
+              <thead>
+                <tr class="doc-header">
+                  <th class="col-check">
+                    <input type="checkbox" style="cursor: pointer;" />
+                    <img src="Assets/dropdown.png" class="dropdown-right" />
+                  </th>
+                  <th class="col-name">Document Name</th>
+                  <th class="col-status">Status</th>
+                  <th class="col-date">Last Modified</th>
+                  <th class="col-action"></th>
+                </tr>
+              </thead>
+
+              <tbody id="docTbody">
+              </tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
-    <!-- Dialog Box -->
     <div class="modal-overlay" id="modalOverlay">
       <div class="modal-box">
         <h3>Add details</h3>
-        <!-- Document Name -->
         <form id="documentForm">
           <div class="form-group">
             <label>Document Name</label>
@@ -174,7 +167,6 @@
               required
             />
           </div>
-          <!-- Status -->
           <div class="form-group">
             <label>Status</label>
             <select class="docStatus" required>
@@ -188,12 +180,10 @@
             <label>Person Waiting</label>
             <input type="number" id="docName" placeholder="0" min="0" />
           </div>
-          <!-- Last Modified -->
           <div class="form-group">
             <label>Last Modified</label>
             <div class="auto-date" id="lastModifiedText">Auto-generated</div>
           </div>
-          <!-- Actions -->
           <div class="modal-actions">
             <button type="submit">Add</button>
           </div>
