@@ -1,9 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const addBtn = document.querySelector(".add-btn");
 const modalOverlay = document.querySelector(".modal-overlay");
 const modalBox = document.querySelector(".modal-box");
-// const form = document.getElementById("documentForm") as HTMLFormElement | null;
 const form = document.querySelector("#documentForm");
 const lastModifiedText = document.getElementById("lastModifiedText");
 const dropDown = document.querySelector(".user-right");
@@ -37,6 +34,7 @@ modalBox.addEventListener("click", (e) => {
     e.stopPropagation();
 });
 form.addEventListener("submit", (e) => {
+    var _a;
     e.preventDefault();
     const docId = crypto.randomUUID();
     const titleInput = document.querySelector("#docName");
@@ -45,7 +43,7 @@ form.addEventListener("submit", (e) => {
     const title = titleInput.value.trim();
     const status = docStatus.value;
     const waiting = status === "pending"
-        ? Number(document.querySelector(".for-pending input")?.value || 0)
+        ? Number(((_a = document.querySelector(".for-pending input")) === null || _a === void 0 ? void 0 : _a.value) || 0)
         : 0;
     const now = new Date();
     const lastModifiedDate = now.toLocaleDateString();
@@ -103,7 +101,7 @@ function readDocs() {
         const data = JSON.parse(raw);
         return Array.isArray(data) ? data : [];
     }
-    catch {
+    catch (_a) {
         return [];
     }
 }
@@ -116,7 +114,7 @@ function renderTable() {
         return;
     tbody.innerHTML = "";
     const docs = readDocs();
-    docs.forEach((doc) => tbody.appendChild(createRow(doc)));
+    docs.reverse().forEach((doc) => tbody.appendChild(createRow(doc)));
 }
 document.addEventListener("DOMContentLoaded", renderTable);
 searchInput.addEventListener("input", (e) => {
@@ -200,10 +198,10 @@ function createRow(doc) {
                 return;
             pendingInput.value = String(doc.waiting);
         }
-        const title = modalOverlay?.querySelector("h3");
+        const title = modalOverlay === null || modalOverlay === void 0 ? void 0 : modalOverlay.querySelector("h3");
         if (title)
             title.innerText = "Edit details";
-        modalOverlay?.classList.add("active");
+        modalOverlay === null || modalOverlay === void 0 ? void 0 : modalOverlay.classList.add("active");
         additional.style.display = "none";
     });
     rowDeleteBtn.addEventListener("click", (e) => {
@@ -221,4 +219,5 @@ function createRow(doc) {
     });
     return tr;
 }
+// export {};
 //# sourceMappingURL=script.js.map

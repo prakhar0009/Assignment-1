@@ -1,7 +1,6 @@
 const addBtn = document.querySelector<HTMLButtonElement>(".add-btn");
 const modalOverlay = document.querySelector<HTMLElement>(".modal-overlay");
 const modalBox = document.querySelector<HTMLElement>(".modal-box");
-// const form = document.getElementById("documentForm") as HTMLFormElement | null;
 const form = document.querySelector<HTMLFormElement>("#documentForm");
 const lastModifiedText = document.getElementById("lastModifiedText");
 const dropDown = document.querySelector<HTMLElement>(".user-right");
@@ -142,7 +141,7 @@ function renderTable() {
   if (!tbody) return;
   tbody.innerHTML = "";
   const docs = readDocs();
-  docs.forEach((doc) => tbody.appendChild(createRow(doc)));
+  docs.reverse().forEach((doc) => tbody.appendChild(createRow(doc)));
 }
 
 document.addEventListener("DOMContentLoaded", renderTable);
