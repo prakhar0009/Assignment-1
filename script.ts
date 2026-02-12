@@ -6,23 +6,33 @@ const lastModifiedText = document.getElementById("lastModifiedText");
 const dropDown = document.querySelector<HTMLElement>(".user-right");
 const logOut = document.querySelector<HTMLElement>(".log-out");
 const docStatus = document.querySelector<HTMLSelectElement>(".docStatus");
-const forPending = document.querySelector<HTMLElement>(".for-pending") ;
+const forPending = document.querySelector<HTMLElement>(".for-pending");
 const searchInput = document.querySelector<HTMLInputElement>(".search-input");
 
 let editIndex: number | null = null;
 
-if(!addBtn || !modalOverlay || !modalBox || !form || !lastModifiedText || !dropDown || !logOut || !docStatus || !forPending || !searchInput){
+if (
+  !addBtn ||
+  !modalOverlay ||
+  !modalBox ||
+  !form ||
+  !lastModifiedText ||
+  !dropDown ||
+  !logOut ||
+  !docStatus ||
+  !forPending ||
+  !searchInput
+) {
   throw new Error("Required modal elements are not found");
 }
 
-addBtn.addEventListener("click", (e : MouseEvent) => {
+addBtn.addEventListener("click", (e: MouseEvent) => {
   e.stopPropagation();
   editIndex = null;
   form.reset();
   forPending.style.display = "none";
   const title = modalOverlay.querySelector<HTMLHeadingElement>("h3");
-  if(title)
-    title.innerHTML = "Add Details"
+  if (title) title.innerHTML = "Add Details";
 
   modalOverlay.classList.add("active");
 
@@ -37,22 +47,25 @@ modalOverlay.addEventListener("click", () => {
   modalOverlay.classList.remove("active");
 });
 
-modalBox.addEventListener("click", (e : MouseEvent) => {
+modalBox.addEventListener("click", (e: MouseEvent) => {
   e.stopPropagation();
 });
 
-form.addEventListener("submit", (e : SubmitEvent) => {
+form.addEventListener("submit", (e: SubmitEvent) => {
   e.preventDefault();
 
   const docId = crypto.randomUUID();
   const titleInput = document.querySelector<HTMLInputElement>("#docName");
-  if(!titleInput) return;
-  
+  if (!titleInput) return;
+
   const title = titleInput.value.trim();
   const status = docStatus.value;
   const waiting =
     status === "pending"
-      ? Number(document.querySelector<HTMLInputElement>(".for-pending input")?.value || 0)
+      ? Number(
+          document.querySelector<HTMLInputElement>(".for-pending input")
+            ?.value || 0,
+        )
       : 0;
 
   const now = new Date();
@@ -97,32 +110,31 @@ dropDown.addEventListener("click", function () {
 docStatus.addEventListener("change", statusChange);
 
 function statusChange() {
-  if(!docStatus || !forPending)return;
+  if (!docStatus || !forPending) return;
   if (docStatus.value === "pending") {
     forPending.style.display = "block";
   } else {
     forPending.style.display = "none";
     const input = forPending.querySelector<HTMLInputElement>("input");
-    if(input)
-      input.value = "";
+    if (input) input.value = "";
   }
 }
 
 const STORAGE_KEY = "documents";
 
 type Doc = {
-  docId : string,
-  title : string,
-  status : string,
-  waiting : number,
-  lastModifiedDate : string,
-  lastModifiedTime : string
-}
+  docId: string;
+  title: string;
+  status: string;
+  waiting: number;
+  lastModifiedDate: string;
+  lastModifiedTime: string;
+};
 
-function readDocs() : Doc[] {
+function readDocs(): Doc[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if(!raw)return[];
+    if (!raw) return [];
 
     const data = JSON.parse(raw);
     return Array.isArray(data) ? data : [];
@@ -131,7 +143,7 @@ function readDocs() : Doc[] {
   }
 }
 
-function writeDocs(docs : Doc[]) : void {
+function writeDocs(docs: Doc[]): void {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(docs));
 }
 
@@ -149,14 +161,16 @@ document.addEventListener("DOMContentLoaded", renderTable);
 searchInput.addEventListener("input", (e) => {
   const target = e.target as HTMLInputElement;
   const searchValue = target.value.toLowerCase();
-  const rows = document.querySelectorAll<HTMLTableRowElement>(".doc-table tbody tr");
+  const rows = document.querySelectorAll<HTMLTableRowElement>(
+    ".doc-table tbody tr",
+  );
 
   rows.forEach((row) => {
     const colName = row.querySelector<HTMLElement>(".col-name");
-    if(!colName)return;
+    if (!colName) return;
     const docName = colName.innerText.toLowerCase();
     const isStatus = row.querySelector<HTMLElement>(".col-status");
-    if(!isStatus)return ;
+    if (!isStatus) return;
     const status = isStatus.innerText.toLowerCase();
 
     row.style.display =
@@ -166,7 +180,7 @@ searchInput.addEventListener("input", (e) => {
   });
 });
 
-function createRow(doc : Doc): HTMLTableRowElement {
+function createRow(doc: Doc): HTMLTableRowElement {
   const tr = document.createElement("tr");
   tr.className = "doc-item";
 
@@ -205,60 +219,61 @@ function createRow(doc : Doc): HTMLTableRowElement {
   const rowEditBtn = tr.querySelector<HTMLElement>(".edit-row");
   const rowDeleteBtn = tr.querySelector<HTMLElement>(".delete-row");
 
-  if(!menuDots || !additional || !rowEditBtn || !rowDeleteBtn){
+  if (!menuDots || !additional || !rowEditBtn || !rowDeleteBtn) {
     return tr;
   }
 
   menuDots.addEventListener("click", (e: MouseEvent) => {
     e.stopPropagation();
 
-    document.querySelectorAll<HTMLElement>(".additional")
+    document
+      .querySelectorAll<HTMLElement>(".additional")
       .forEach((m) => m !== additional && (m.style.display = "none"));
     additional.style.display =
       additional.style.display === "flex" ? "none" : "flex";
   });
 
-  rowEditBtn.addEventListener("click", (e : MouseEvent) => {
+  rowEditBtn.addEventListener("click", (e: MouseEvent) => {
     e.stopPropagation();
+
+    // console.log(searchInput?.value);
+    searchInput!.value = "";
 
     const docs = readDocs();
     editIndex = docs.findIndex((d) => d.docId === doc.docId);
 
     const docInput = document.querySelector<HTMLInputElement>("#docName");
-    if(!docInput)return ;
+    if (!docInput) return;
     docInput.value = doc.title;
 
     const docStatus = document.querySelector<HTMLSelectElement>(".docStatus");
-    if(!docStatus)return;
+    if (!docStatus) return;
     docStatus.value = doc.status;
     statusChange();
 
     if (doc.status === "pending") {
       const pendingInput = forPending!.querySelector<HTMLInputElement>("input");
-      if(!pendingInput) return ;
+      if (!pendingInput) return;
       pendingInput.value = String(doc.waiting);
     }
 
     const title = modalOverlay?.querySelector<HTMLHeadingElement>("h3");
-    if(title)
-      title.innerText = "Edit details";
+    if (title) title.innerText = "Edit details";
     modalOverlay?.classList.add("active");
     additional.style.display = "none";
   });
 
-  rowDeleteBtn.addEventListener("click", (e : MouseEvent) => {
+  rowDeleteBtn.addEventListener("click", (e: MouseEvent) => {
     e.stopPropagation();
 
+    searchInput!.value = "";
     const isConfirmed = confirm(
       `Are you sure you want to delete "${doc.title}"?`,
     );
 
     if (isConfirmed) {
       let docs = readDocs();
-      docs = docs.filter(
-        (d) =>
-          d.docId !== doc.docId,
-      );
+      docs = docs.filter((d) => d.docId !== doc.docId);
       writeDocs(docs);
       renderTable();
     } else {

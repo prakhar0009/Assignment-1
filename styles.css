@@ -82,7 +82,7 @@ body {
   height: 10px;
 }
 
-.user-right:hover{
+.user-right:hover {
   cursor: pointer;
   border: 1px solid #626d82;
   background-color: #eef7ee;
@@ -335,7 +335,7 @@ tr {
 
 .doc-item td {
   padding: 16px 20px;
-  vertical-align: middle; 
+  vertical-align: middle;
 }
 
 .doc-title {
@@ -467,7 +467,7 @@ input[type="checkbox"] {
   font-size: 18px;
   color: #6b7280;
 }
-.menu-dots:hover{
+.menu-dots:hover {
   background-color: #eef7ee;
 }
 
